@@ -1,0 +1,5 @@
+npm i -p express
+npm i -D mock.js
+npm i -D should.js
+npm i -D multer
+npm i -p body-parser
