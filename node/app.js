@@ -10,7 +10,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "art");
 
 app.get("/userlist", function(req, res) {
-    res.render("index.art", {
+    res.render("userlist.art", {
         user: {
             name: "aui",
             tags: ["art", "template", "nodejs"]
