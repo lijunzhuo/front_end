@@ -1,0 +1,59 @@
+body{
+    background: url(../assets/image2.jpg);
+}
+container_login{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #34495e;
+  }
+  .box_login{
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #191919;
+    text-align: center;
+  }
+  .box_login h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .box_login .text_login,.box_login .password_login{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+  .box_login .text_login:focus, .box_login .password_login:focus{
+    width: 280px;
+    border-color: #2ecc71;
+  }
+  .box_login .submit_login{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .box_login .submit_login:hover{
+    background: #2ecc71;
+  }
