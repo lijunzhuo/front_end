@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import axios from "axios";
+import React, { Component } from 'react';
+import Axios from 'axios';
 
 export default class list extends Component {
     constructor(props){
@@ -11,12 +11,6 @@ export default class list extends Component {
             phone:""
         }
     }
-
-    // componentDidMount(){
-    //     axios
-    //         .get()
-    //         .then()
-    // }
 
     delhandler(item){
         if(window.confirm("Are you sure?")){
@@ -45,6 +39,7 @@ export default class list extends Component {
     }
 
     render() {
+        //console.log(this.props.ulist[0]);
         return (
             <div className="list">
                 <table className="table table-bordered table-striped table-hover">

@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 10001,
+      "name": "阎强",
+      "email": "r.jpi@eflcjsn.ve",
+      "phone": 17800979648,
+      "address": "@country(true)",
+      "zip": "353489",
+      "birthday": "1973-03-10"
+    },
+    {
+      "id": 10002,
+      "name": "汤洋",
+      "email": "d.cngonm@ilyfwse.co",
+      "phone": 17806531906,
+      "address": "@country(true)",
+      "zip": "227094",
+      "birthday": "1998-56-10"
+    },
+    {
+      "id": 10003,
+      "name": "尹桂英",
+      "email": "x.jstwd@dymefkrmgn.ki",
+      "phone": 17800634104,
+      "address": "@country(true)",
+      "zip": "622623",
+      "birthday": "1995-35-20"
+    },
+    {
+      "id": 10004,
+      "name": "武静",
+      "email": "w.lydbgdjm@nsbimiwal.gl",
+      "phone": 17800937702,
+      "address": "@country(true)",
+      "zip": "417256",
+      "birthday": "2015-43-05"
+    }
+  ]
+}
