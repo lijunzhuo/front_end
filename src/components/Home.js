@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {Fragment}from 'react';
+import {Link, Switch, Route, Router} from "react-router-dom";
 //import './App.css';
 import './Home.scss';
 import List from "./list"
 import Adduser from "./addlist";
+import NewUserList from "./NewUserList";
 import store from "../store/index"
 import {UserListActionCreators} from "../store/actions/UserListActions"
 import Axios from 'axios';
@@ -12,6 +14,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      isNewList: false,
       userList: store.getState().UserList,
       unsubscribe: store.subscribe(()=>{
         this.setState({userList:store.getState().UserList})

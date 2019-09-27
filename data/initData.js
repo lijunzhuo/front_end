@@ -9,12 +9,13 @@ jsondb.users || (jsondb.users = []);
 let data = Mock.mock({
     "user|5": [{
         "id|+1": 10000,
+        "age": "@natural(1, 100)",
         "name": "@cname",
         "email": "@email",
         "phone": "@natural(17800000000, 17809999999)",
-        "address": "@country(true)",
-        "zip": "@zip",
-        "birthday": "@date('yyyy-mm-dd')",
+        // "address": "@country(true)",
+        // "zip": "@zip",
+        // "birthday": "@date('yyyy-mm-dd')",
     }]
 });
 

@@ -6,6 +6,7 @@ import './App.scss';
 import Home from "./components/Home"
 import Login from "./components/Login"
 import Empty from "./components/Empty"
+import Newuserlist from "./components/NewUserList"
 
 class App extends React.Component{
   constructor(props){
@@ -34,6 +35,7 @@ class App extends React.Component{
               render={()=><Redirect to="/app"/>}>
             </Route>
             <Route path="/login" component={Login}></Route>
+            <Route path="/newuserlist" component={Newuserlist}></Route>
             <Route 
               path="/app" 
               render={(props)=>{
