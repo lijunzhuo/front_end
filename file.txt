@@ -12,3 +12,5 @@ Local change, can we get a conflict?
 
 record: local pull without change, two file will merge automatically
 
+Let's try make another conflict
+
