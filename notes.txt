@@ -1,4 +1,0 @@
-1.在创建项目时，可能会遇到权限问题：Cannot read property 'indexOf' of undefined
-解决方法：
-sudo chown -R $USER:$GROUP ~/.npm
-sudo chown -R $USER:$GROUP ~/.config

@@ -1,7 +1,0 @@
-npm i -p express
-npm i -p art-template
-npm i -p express-art-template
-npm i -D mock.js
-npm i -D should
-npm i -p multer
-npm i -p body-parser
