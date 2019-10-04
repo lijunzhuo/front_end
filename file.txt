@@ -12,5 +12,9 @@ Local change, can we get a conflict?
 
 record: local pull without change, two file will merge automatically
 
+<<<<<<< HEAD
 Let's try make another conflict
+=======
+see, have conflicts, you need to modify your local file by yourself 
+>>>>>>> e0caf9c2b36c3d033bd0d391bba9ec18c9e3cd9a
 
