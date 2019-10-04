@@ -7,3 +7,4 @@
 local change by Leo
 remote change on web git 
 haha
+record: local pull without change, two file will merge automatically
