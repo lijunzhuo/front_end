@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+  There are 3 parts to this exercise, please do the focus on the first two parts, if you have time and want to show
+      more of your abilities please feel free to do as much of the 3rd part as you can. 
+
+  !!!!!!!!!!!!!!!!!Please just create a fork of this project to do your work on.!!!!!!!!!!!!!!!!!
+
+  Part 1: Render a list from API call
+    - Data API -  https://emplistapi-258220.appspot.com/
+    - API returns list employees with the following format:
+            {
+              "name": {
+                        "first": string,
+                        "last": string,
+                      },
+              "jobTitle": string,
+              "photoURL": string?
+            }
+    - The API accepts two parameters: pageSize, pageNumber (theres a limited amount of mock data, high 
+      page numbers wont contain data)
+    - Employees always have a first name, last name, and job title.
+    - Not all employees have a photo
+    - Sample list view - https://storage.googleapis.com/sampleemplistbucket/interviewsample.jpg
+  Part 2: Implement an "Add Employee" button
+    - Clicking the button should show a modal form containing all possible fields used to add an employee
+    - The data provided doesn't actually need to save to the server. Clicking
+      "save", however, should show a message that the employee was saved, then close the      
+      modal. 
+    - The data that would have been saved should be returned from the function
+    - There are a limited amount of job title options
+  Part 3: Optional things that you might want to do if you are able to and want to show you abilities
+    - Sorting
+    - Drag and drop
+    - Load more
+    - Anything else that you can think of that might be useful on a web form like this
+
+  Requirements:
+    - Only needs to work in Chrome. Other browsers will not be looked at.
+    - Should be responsive from 375x667 (iPhone 6/7/8 preset in Chrome Dev Tools) to 1920x1080. 
+      *** 768x1024 to 1920x1080 should be prioritized ***
+    - Document any assumptions
+    - Any style guide is fine, but should be consistent
+    - Can use Bulma (included), but no other libraries or frameworks can be used (jQuery, React)
+    - Doesn't need to be pixel perfect, focus is on reusability, readability, consistency, best practices, etc.
+Resources:
+Bulma - https://bulma.io/documentation/
+-->
+
+    <nav
+      class="navbar is-primary"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navMenu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
+          </a>
+          <a class="navbar-item">
+            Appointments
+          </a>
+          <a class="navbar-item">
+            Clients
+          </a>
+          <a class="navbar-item">
+            Employees
+          </a>
+        </div>
+        <div class="navbar-end">
+          <a class="navbar-item">Sign Out</a>
+        </div>
+      </div>
+    </nav>
+    <div id="page-container">
+      <nav
+        class="pagination is-centered"
+        role="navigation"
+        aria-label="pagination"
+      >
+        <a class="pagination-previous" id="page-previous">Previous</a>
+        <a class="pagination-next" id="page-next">Next page</a>
+        <ul class="pagination-list" id="pagination-list"></ul>
+      </nav>
+    </div>
+    <div id="add-new">
+      <a href="#" id="add-button" class="button is-link is-large"
+        >+ Add Employee</a
+      >
+    </div>
+    <h1 class="title">Employees</h1>
+    <div class="panel-block" id="search-bar">
+      <p class="control has-icons-left">
+        <input
+          class="input"
+          type="text"
+          placeholder="Search By Name"
+          id="search-input"
+        />
+        <span class="icon is-left">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </span>
+      </p>
+    </div>
+    <section class="section">
+      <div class="container">
+        <span id="error"
+          >Opps, seems like Your Chrome Browser blocked HTTP Response, Please
+          download and activate Chrome extention "Allow CORS:
+          Access-Control-Allow-Origin" to receive the HTTP Response, download
+          page:
+          https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en</span
+        >
+        <article id="employees">
+          <!-- Render Content Here -->
+          <ul id="emplpoyee-list"></ul>
+        </article>
+      </div>
+      <div class="modal-container">
+        <div class="modal" id="modal-add-employee">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title">Add New Employee</p>
+              <button
+                class="delete"
+                aria-label="close"
+                id="close-modal"
+              ></button>
+            </header>
+            <section class="modal-card-body modal-wrap">
+              <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="e.g Alex Smith"
+                    id="name-add"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="email"
+                    placeholder="e.g. alexsmith@gmail.com"
+                    id="email-add"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Job Title</label>
+                <div class="control select">
+                  <select id="job-title">
+                    <option value="None Above" selected="selected"
+                      >----Not Selected---</option
+                    >
+                    <option value="General Manager">General Manager</option>
+                    <option value="Stylelist">Stylelist</option>
+                    <option value="Receptionist">Receptionist</option>
+                    <option value="Esthetician">Esthetician</option>
+                    <option value="Trainee">Trainee</option>
+                    <option value="Senior Stylist">Senior Stylist</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+            <footer class="modal-card-foot">
+              <button class="button is-success" id="save-modal">
+                Save changes
+              </button>
+              <button class="button" id="cancel-modal">Cancel</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="model-add-success">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- Any other Bulma elements you want -->
+          <div class="notification is-primary" id="success-notification">
+            <!-- <button class="delete"></button> -->
+            Congratulations! New employee has been successfully added!
+          </div>
+        </div>
+        <button
+          class="modal-close is-large"
+          aria-label="close"
+          id="success-close"
+        ></button>
+      </div>
+    </section>
+  </body>
+</html>
